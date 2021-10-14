@@ -1,0 +1,80 @@
+
+  .usermenu {
+    padding: 7px 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    transition: 0.1s;
+    position: relative;
+  }
+  
+  .rectangle {
+    top: 59px;
+    margin-right: 45px;
+    color: #fff;
+    position: absolute;
+    z-index: 2;
+
+
+  }
+  .userMenuPicAndArrow {
+    border-radius: 2px;
+    display: flex;
+    align-items: center;
+    padding: 5px;
+    transition: background-color 0.5s;
+    cursor: pointer;
+  }
+  
+  .userMenuUserpic {
+    margin-right: 6px;
+    background-color: #fff;
+    border-radius: 50%;
+  }
+  
+  .userMenuUserpic:hover {
+    background-color: rgb(92, 116, 211);
+    transition: background-color 1s;
+  }
+
+  .userMenuArrow {
+    height: 24px;
+    transition: transform 0.8s;
+  }
+  
+  .userMenuArrowRotated {
+    transform: rotate(180deg);
+    transition: transform 0.8s;
+  }
+  
+  .userMenuDropdown {
+    position: absolute;
+    top: 67px;
+    width: 150px;
+    min-height: 60px;
+    background-color: #fff;
+    padding: 8px 7px 5px;
+    font-size: 14px;
+    line-height: 16px;
+    border-radius: 5px;
+    box-shadow: 0 0 2px 3px #0067a3;
+    filter: drop-shadow(0 0 2px #0067a3);
+  }
+  
+  .userMenuDropdownEl {
+    padding: 4px 0 4px 2px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    border-radius: 2px;
+    list-style: none;
+  }
+  
+  .userMenuDropdownEl:hover {
+    background-color: #cbcbcb;
+  }
+  @media screen and (max-width: 780px) {
+    .usermenu {
+      margin-left: auto;
+    }
+    
+  }

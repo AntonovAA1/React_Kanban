@@ -1,0 +1,23 @@
+.footer {
+    background-color: #0067A3;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 18px;
+    font-family: Roboto;
+    color: #FFFFFF;
+}
+.tasks {
+    display: flex;
+}
+.tasks p {
+    margin-left: 20px;
+}
+.name {
+    margin-right: 15px;
+}
+@media screen and (max-width: 780px) {
+    .footer {
+        display: none;
+    }
+}
