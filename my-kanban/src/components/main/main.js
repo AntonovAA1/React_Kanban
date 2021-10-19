@@ -4,12 +4,16 @@ import List from "../list"
 
 
 export default function Main (props) {
-    const {addCard} = props
+    const {addCard, addCardReady, addCardInProgress, addCardFinished} = props
     const {todos} = props
     return (
        
        <main className = {css.main}>
-            <List todos = {todos} addCard={addCard}/>
+            <List todos = {todos} 
+                  addCard={addCard} 
+                  addCardReady = {addCardReady} 
+                  addCardInProgress = {addCardInProgress}
+                  addCardFinished = {addCardFinished}/>
         </main>
 
     )

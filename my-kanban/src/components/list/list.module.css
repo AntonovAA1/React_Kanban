@@ -26,6 +26,7 @@
     font-size: 18px;
     overflow-y: scroll; /* полоса прокрутки (скроллбар) */
     box-shadow: 0 0 2px 3px #0067a3;
+    max-width: 310px;
 
 }
 .card_p {
