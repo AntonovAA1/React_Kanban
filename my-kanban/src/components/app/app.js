@@ -20,29 +20,31 @@ function App() {
 }
 
 function addCard (data) {
-    let m1 = state.todos[0].items.push(data) //добавляем новый эл-т в конец массива Baclog
-    console.log (m1)
-setState(state => {
+    state.todos[0].items.push(data) //добавляем новый эл-т в конец массива Baclog
+  /* setState(state => {
         return {
-            isForm: false,
             todos: [...state.todos], 
   }
-    })
+    }) */
     updateLocal();// вызываем localStorage
 }
 
 function addCardReady (dataReady) {
-  let m1 = state.todos[1].items.push(dataReady) //добавляем новый эл-т в конец массива Ready
-  console.log (m1)
+  console.log(state.todos[1].items.push(dataReady)) //добавляем новый эл-т в конец массива Ready. dataReady - массив [content, id] с новым таском из дропдауна Baclog
+  /*странная вещь - в консоль выводит длину массива todos[1], а не массив с новым элементом !! */
 
-  let statetodos = state.todos[0].items.filter (item => item !== dataReady);
+  let statetodos = state.todos[0].items.filter(item => item.content !== dataReady.content); 
+  /* сформировын новый массив для Baclog  */
+
   console.log(dataReady.content, statetodos)
-setState(state => {
-      return {
-          isForm: false,
-          todos: [...state.todos], 
-}
-  })
+  /* здесь верно - выводит новый content и  новый массив для Baclog  */
+
+  state.todos.map(todo => {
+    return  {...state.todos, items: statetodos}       
+})
+  /* здесь пытаюсь записать в state новый массив для Baclog..
+  Обновления не происходит... */
+  
   updateLocal();// вызываем localStorage
 }
 
@@ -51,7 +53,6 @@ function addCardInProgress (dataInProgress) {
   console.log (m1)
 setState(state => {
       return {
-          isForm: false,
           todos: [...state.todos], 
 }
   })
@@ -63,7 +64,6 @@ function addCardFinished (dataFinished) {
   console.log (m1)
 setState(state => {
       return {
-          isForm: false,
           todos: [...state.todos], 
 }
   })

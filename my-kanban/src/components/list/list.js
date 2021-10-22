@@ -2,6 +2,7 @@ import {useState} from 'react'
 import css from "./list.module.css"
 import ListItem from "./list-item"
 import AddListForm from '../add-list-form'
+import Dropdown from '../dropdown'
 import {  Route, Switch, NavLink } from 'react-router-dom'
 import Popap from "../popap" 
 
@@ -16,7 +17,7 @@ export default function List (props) {
 
     // переключаем кнопку + Add card на submit
     const AddTask = () => {
-        {setState ({...state,  isForm: !state.isForm})}
+        setState ({...state,  isForm: !state.isForm})
     }
     // записываем из drop-down данные в спиок задач Ready
     const handleChangeReady = (e) => {
@@ -24,7 +25,6 @@ export default function List (props) {
             id: Math.random().toString(36),
 			content: e.target.value,
             }
-            console.log (e)
         addCardReady(dataReady)
         AddTask ()
     }
@@ -73,36 +73,61 @@ export default function List (props) {
                             </ul>
                                 
                                 {/* Выводим форму при клике на +Add card */}
-                            {state.isForm && todo.title === 'Backlog' &&
-                            <AddListForm addCard={addCard} AddTask={AddTask}/>}
-
+                                
+                            {!state.isForm && todo.title === 'Backlog' ?
+                            <AddListForm 
+                                addCard={addCard} 
+                                AddTask={AddTask}/>  : 
+                            <>
+                            <Dropdown  
+                                AddTask = {AddTask}
+                                addCardReady = {addCardReady} 
+                                addCardInProgress = {addCardInProgress}
+                                addCardFinished = {addCardFinished}
+                                Backlog = {Backlog}
+                                Ready = {Ready}
+                                InProgress = {InProgress}
+                                todotitle ={todo.title}
+                                />
+                            {/*<button onClick = {AddTask} className={css.button}>
+                               {todo.title === 'Backlog' && "+ Add card"}
+                            </button>
+                            */}
+                           </> 
+                            }
+                                {/* <button onClick = {AddTask} className={css.button}>
+                                    {state.isForm && todo.title === 'Backlog'? "" : "+ Add card"}
+                                </button>
+                        */}
                                 {/* Выводим ДропДаун со списком задач */}
+
+                            {/*
                             {state.isForm && todo.title === 'Ready'  &&
-                               <select className={css.select} onChange={handleChangeReady} value={todo.items.content} id={todo.items.id}>
+                               <select className={css.select} onChange={handleChangeReady}>
                                  {Backlog.items.map((item) => {
-                                    return <option>{item.content}</option>
+                                    return <option value={item.content}>{item.content}</option>
                                     })}
                                 </select> 
                             }
                             {state.isForm && todo.title === 'In Progress'  &&
-                               <select className={css.select} onChange={handleChangeInProgress} value={todo.items.content} id={todo.items.id}>
+                               <select className={css.select} onChange={handleChangeInProgress}>
                                  {Ready.items.map((item) => {
-                                    return <option>{item.content}</option>
+                                    return <option value={item.content}>{item.content}</option>
                                     })}
                                 </select> 
                             }
                             {state.isForm && todo.title === 'Finished'  &&
-                               <select className={css.select} onChange={handleChangeFinished} value={todo.items.content} id={todo.items.id}>
+                               <select className={css.select} onChange={handleChangeFinished}>
                                  {InProgress.items.map((item) => {
-                                    return <option>{item.content}</option>
+                                    return <option value={item.content}>{item.content}</option>
                                     })}
                                 </select> 
                             }
-
-                        <button onClick = {AddTask} className={css.button}>
-                            {state.isForm ? "" : "+ Add card"}
+                        */}
+                        {/* <button onClick = {AddTask} className={css.button}>
+                            {state.isForm && todo.title === 'Backlog'? "" : "+ Add card"}
                         </button>
-                        
+                    */}
 
                     </div>
                   

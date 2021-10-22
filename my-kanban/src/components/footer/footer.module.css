@@ -9,6 +9,8 @@
 }
 .tasks {
     display: flex;
+    align-items: center;
+    margin-top: 20px;
 }
 .tasks p {
     margin-left: 20px;
