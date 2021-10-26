@@ -3,7 +3,7 @@ const mock = {
 	todos: [
 		{
 			title: 'Backlog',
-			created: '2021-09-27T11:10:37.552Z',
+			created: '2021-10-27T11:10:37.552Z',
 			items: [
 				{
 					id: '123',
@@ -24,7 +24,7 @@ const mock = {
 		{
 
 	title: 'Ready',
-	created: '2021-09-28T11:11:42.182Z',
+	created: '2021-10-25T11:11:42.182Z',
 	items: [
 		{
 			id: '226',
@@ -58,16 +58,12 @@ const mock = {
 			id: '233',
 			content: 'Shop bug6',
 		},
-		{
-			id: '234',
-			content: 'Shop page – performance issues',
-		},
 	]
 	},
 //
 		{
 			title: 'In Progress',
-			created: '2021-09-29T11:13:57.611Z',
+			created: '2021-10-10T11:13:57.611Z',
 			items: [
 				{
 					id: '335',
@@ -83,7 +79,7 @@ const mock = {
 		},
 		{
 			title: 'Finished',
-			created: '2021-09-30T11:14:58.972Z',
+			created: '2021-10-30T11:14:58.972Z',
 			items: [
 				{
 					id: '433',

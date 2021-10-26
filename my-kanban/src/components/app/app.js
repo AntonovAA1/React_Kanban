@@ -18,55 +18,55 @@ function App() {
    const updateLocal = () => {
     localStorage.setItem('Todos', JSON.stringify(state.todos))
 }
-
-function addCard (data) {
-    state.todos[0].items.push(data) //добавляем новый эл-т в конец массива Baclog
-  /* setState(state => {
-        return {
-            todos: [...state.todos], 
-  }
-    }) */
+/*добавляем новый эл-т в конец массива Backlog */
+function addCard (data) {  
+    const updatedTodos = state.todos.map (todo => {
+      if (todo.title === 'Backlog')
+        return  todo.items.push(data) 
+        return todo
+    })
+    setState ({...state.todos, updatedTodos})
     updateLocal();// вызываем localStorage
 }
 
 function addCardReady (dataReady) {
-  console.log(state.todos[1].items.push(dataReady)) //добавляем новый эл-т в конец массива Ready. dataReady - массив [content, id] с новым таском из дропдауна Baclog
-  /*странная вещь - в консоль выводит длину массива todos[1], а не массив с новым элементом !! */
-
-  let statetodos = state.todos[0].items.filter(item => item.content !== dataReady.content); 
-  /* сформировын новый массив для Baclog  */
-
-  console.log(dataReady.content, statetodos)
-  /* здесь верно - выводит новый content и  новый массив для Baclog  */
-
-  state.todos.map(todo => {
-    return  {...state.todos, items: statetodos}       
-})
-  /* здесь пытаюсь записать в state новый массив для Baclog..
-  Обновления не происходит... */
-  
+   /* сформирован новый массив для Baclog  */
+  let newBacklog = state.todos[0].items.filter(item => item.content !== dataReady.content); 
+  /* функция для обновления массивов Backlog и Ready */
+  const updatedReady = state.todos.map (todo => {
+    if (todo.title === 'Backlog')
+      return  todo.items = newBacklog
+    if (todo.title === 'Ready')
+      return  todo.items.push(dataReady)
+    return todo
+  })
+  setState ({...state.todos, updatedReady}) /* перезаписываем state */
   updateLocal();// вызываем localStorage
 }
 
 function addCardInProgress (dataInProgress) {
-  let m1 = state.todos[2].items.push(dataInProgress) //добавляем новый эл-т в конец массива In Progress
-  console.log (m1)
-setState(state => {
-      return {
-          todos: [...state.todos], 
-}
+  let newInProgress = state.todos[1].items.filter(item => item.content !== dataInProgress.content); 
+  const updatedInProgress = state.todos.map (todo => {
+    if (todo.title === 'Ready')
+      return  todo.items = newInProgress
+    if (todo.title === 'In Progress')
+      return  todo.items.push(dataInProgress)
+      return todo
   })
+  setState ({...state.todos, updatedInProgress})
   updateLocal();// вызываем localStorage
 }
 
 function addCardFinished (dataFinished) {
-  let m1 = state.todos[3].items.push(dataFinished) //добавляем новый эл-т в конец массива In Progress
-  console.log (m1)
-setState(state => {
-      return {
-          todos: [...state.todos], 
-}
+  let newFinished = state.todos[2].items.filter(item => item.content !== dataFinished.content); 
+  const updatedFinished = state.todos.map (todo => {
+    if (todo.title === 'In Progress')
+      return  todo.items = newFinished
+    if (todo.title === 'Finished')
+      return  todo.items.push(dataFinished)
+      return todo
   })
+  setState ({...state.todos, updatedFinished})
   updateLocal();// вызываем localStorage
 }
 

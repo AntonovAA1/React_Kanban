@@ -19,33 +19,7 @@ export default function List (props) {
     const AddTask = () => {
         setState ({...state,  isForm: !state.isForm})
     }
-    // записываем из drop-down данные в спиок задач Ready
-    const handleChangeReady = (e) => {
-        const dataReady = {
-            id: Math.random().toString(36),
-			content: e.target.value,
-            }
-        addCardReady(dataReady)
-        AddTask ()
-    }
-    // записываем из drop-down данные в спиок задач In Progress
-    const handleChangeInProgress = (e) => {
-        const dataInProgress = {
-            id: Math.random().toString(36),
-			content: e.target.value,
-            }
-            addCardInProgress(dataInProgress)
-        AddTask ()
-    }
-    // записываем из drop-down данные в спиок задач Finished
-    const handleChangeFinished = (e) => {
-        const dataFinished = {
-            id: Math.random().toString(36),
-			content: e.target.value,
-            }
-            addCardFinished(dataFinished)
-        AddTask ()
-    }
+  
 
     const Backlog = todos.find(todo => todo.title === 'Backlog')
     const Ready = todos.find(todo => todo.title === 'Ready')
@@ -78,56 +52,17 @@ export default function List (props) {
                             <AddListForm 
                                 addCard={addCard} 
                                 AddTask={AddTask}/>  : 
-                            <>
+                          
                             <Dropdown  
-                                AddTask = {AddTask}
                                 addCardReady = {addCardReady} 
                                 addCardInProgress = {addCardInProgress}
                                 addCardFinished = {addCardFinished}
                                 Backlog = {Backlog}
                                 Ready = {Ready}
                                 InProgress = {InProgress}
-                                todotitle ={todo.title}
-                                />
-                            {/*<button onClick = {AddTask} className={css.button}>
-                               {todo.title === 'Backlog' && "+ Add card"}
-                            </button>
-                            */}
-                           </> 
+                                todotitle ={todo.title} />
                             }
-                                {/* <button onClick = {AddTask} className={css.button}>
-                                    {state.isForm && todo.title === 'Backlog'? "" : "+ Add card"}
-                                </button>
-                        */}
-                                {/* Выводим ДропДаун со списком задач */}
-
-                            {/*
-                            {state.isForm && todo.title === 'Ready'  &&
-                               <select className={css.select} onChange={handleChangeReady}>
-                                 {Backlog.items.map((item) => {
-                                    return <option value={item.content}>{item.content}</option>
-                                    })}
-                                </select> 
-                            }
-                            {state.isForm && todo.title === 'In Progress'  &&
-                               <select className={css.select} onChange={handleChangeInProgress}>
-                                 {Ready.items.map((item) => {
-                                    return <option value={item.content}>{item.content}</option>
-                                    })}
-                                </select> 
-                            }
-                            {state.isForm && todo.title === 'Finished'  &&
-                               <select className={css.select} onChange={handleChangeFinished}>
-                                 {InProgress.items.map((item) => {
-                                    return <option value={item.content}>{item.content}</option>
-                                    })}
-                                </select> 
-                            }
-                        */}
-                        {/* <button onClick = {AddTask} className={css.button}>
-                            {state.isForm && todo.title === 'Backlog'? "" : "+ Add card"}
-                        </button>
-                    */}
+                                
 
                     </div>
                   

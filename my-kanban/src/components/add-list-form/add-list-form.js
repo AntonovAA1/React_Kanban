@@ -3,7 +3,7 @@ import {useState, useRef} from 'react'
 import css from './add-list-form.module.css'
 
 export default function AddListForm (props) {
-    const {addCard, AddTask, todo} = props
+    const {addCard} = props
     const itemsInput = useRef()
     const [formValid, setFormValid] = useState(true)
     const [isForm, setisForm] = useState(false)
@@ -20,7 +20,6 @@ function handleSubmit (e) {
         }
         setFormValid (true)
         addCard(data)
-        AddTask() // переключаем кнопку с Submit на + Add card
         AddTaskBtn ()
         itemsInput.current.value = '' //очищаем форму после ввода
     } else {

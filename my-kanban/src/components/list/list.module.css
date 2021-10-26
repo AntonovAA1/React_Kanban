@@ -26,7 +26,8 @@
     font-size: 18px;
     overflow-y: scroll; /* полоса прокрутки (скроллбар) */
     box-shadow: 0 0 2px 3px #0067a3;
-    max-width: 310px;
+    width: 280px;
+
 
 }
 .card_p {
@@ -65,6 +66,9 @@
 }
 .select {
     color: cornflowerblue;
+    max-width: 242px;
+    margin-left: 8px;
+    width: 238px;
 }
 @media screen and (max-width: 780px) {
     .cards { 
