@@ -37,7 +37,7 @@
     color: black;
     text-decoration: none;
 }
-.card p:hover {
+.card_p:hover {
     color: blue;
 }
 
@@ -51,6 +51,9 @@
     margin: 7px 10px;
     color: black;
     text-decoration: none;
+}
+.listItem:hover {
+    color: blue;
 }
 
 .button {

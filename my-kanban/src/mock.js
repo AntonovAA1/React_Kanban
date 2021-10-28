@@ -7,15 +7,19 @@ const mock = {
 			items: [
 				{
 					id: '123',
-					content: 'Login page – performance issues'
+					content: 'Login page – performance issues',
+					description: 'Fix all the bugs',
+
 				},
 				{
 					id: '124',
 					content: 'Sprint bugfix',
+					description: 'Fix all the bugs',
 				},
 				{
 					id: '125',
 					content: 'Sleep, eat and repeat...',
+					description: 'repeat...repeat...repeat...',
 				},
 			]
 		},
@@ -29,34 +33,42 @@ const mock = {
 		{
 			id: '226',
 			content: 'Shop page – performance issues',
+			description: '',
 		},
 		{
 			id: '227',
 			content: 'Checkout bugfix',
+			description: '',
 		},
 		{
 			id: '228',
 			content: 'Shop bug1',
+			description: '',
 		},
 		{
 			id: '229',
 			content: 'Shop bug2',
+			description: '',
 		},
 		{
 			id: '230',
 			content: 'Shop bug3',
+			description: '',
 		},
 		{
 			id: '231',
 			content: 'Shop bug4',
+			description: '',
 		},
 		{
 			id: '232',
 			content: 'Shop bug5',
+			description: '',
 		},
 		{
 			id: '233',
 			content: 'Shop bug6',
+			description: '',
 		},
 	]
 	},
@@ -68,27 +80,31 @@ const mock = {
 				{
 					id: '335',
 					content: 'User page – performance issues',
+					description: '',
 				
 				},
 				{
 					id: '336',
 					content: 'Auth bugfix',
+					description: '',
 				
 				},
 			]
 		},
 		{
 			title: 'Finished',
-			created: '2021-10-30T11:14:58.972Z',
+			created: '2021-10-29T10:14:58.972Z',
 			items: [
 				{
 					id: '433',
 					content: 'Main page – performance issues',
+					description: '',
 				
 				},
 				{
 					id: '434',
 					content: 'Main page bugfix',
+					description: '',
 				
 				},
 			]

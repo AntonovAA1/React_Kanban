@@ -22,7 +22,7 @@ function App() {
 function addCard (data) {  
     const updatedTodos = state.todos.map (todo => {
       if (todo.title === 'Backlog')
-        return  todo.items.push(data) 
+        return  todo.items.push(data)
         return todo
     })
     setState ({...state.todos, updatedTodos})

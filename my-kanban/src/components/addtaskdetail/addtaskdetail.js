@@ -1,8 +1,7 @@
 import {useState, useRef} from 'react'
-//import nextId from 'react-id-generator'
-import css from './add-list-form.module.css'
+import css from './addtaskdetail.module.css'
 
-export default function AddListForm (props) {
+export default function Addtaskdetail (props) {
     const {addCard} = props
     const itemsInput = useRef()
     const [formValid, setFormValid] = useState(true)
@@ -14,14 +13,14 @@ function handleSubmit (e) {
     const isValideted = isFormValidated()
     if (isValideted) {
         const items = itemsInput.current.value
-        const data = {
-            id: Math.random().toString(36),
-			content: items,
-            description: "",
+        const dataDescription = {
+            
+			description: items,
         }
+
         setFormValid (true)
-        addCard(data)
-        AddTaskBtn ()
+        //addCard(dataDescription)
+        AddDescriptionBtn ()
         itemsInput.current.value = '' //очищаем форму после ввода
     } else {
         setFormValid (false)
@@ -29,7 +28,7 @@ function handleSubmit (e) {
 
 }
 
-const AddTaskBtn = () => {
+const AddDescriptionBtn = () => {
     setisForm (!isForm)
 } 
 
@@ -42,14 +41,14 @@ function isFormValidated () {
         <>
         {isForm &&
             <form className = {css.form} onSubmit={handleSubmit}>
-                <input ref = {itemsInput} className = {css.input} type = "submint" placeholder = 'New task title...'/>
+                <input ref = {itemsInput} className = {css.input} type = "submint" placeholder = 'Create/add a description for the task...'/>
                 <br />
                 <button onClick = {handleSubmit} className = {css.button} type = "submint">Submit</button>
-                {!formValid && <p className={css.error}>List must have a least one item</p>}
+                {!formValid && <p className={css.error}>Description must have a least one item</p>}
             </form>
         }
-        <button onClick = {AddTaskBtn} className={css.buttonAdd}>
-            {!isForm && "+ Add card"}
+        <button onClick = {AddDescriptionBtn} className={css.buttonAdd}>
+            {!isForm && "+ Add description"}
         </button>
         
         </>

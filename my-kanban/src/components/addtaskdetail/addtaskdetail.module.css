@@ -1,0 +1,37 @@
+
+.form {
+    flex-direction: column;
+}
+.input {
+    border-style: solid;
+    font-size: 18px;
+    margin-bottom: 5px;
+    width: 300px;
+    height: 150px;
+}
+.button {
+    width: 150px;
+    font-size: 18px;
+    margin-bottom: 10px;
+    margin-top: 5px;
+    color: white;
+    background-color: rgb(82, 93, 247);
+    cursor: pointer;
+    border-radius: 5px;
+    border-style: none;
+}
+.error {
+    color: red;
+    
+}
+.buttonAdd {
+    background-color: #EBECF0;
+    color: #5E6C84;
+    border-style: none;
+    font-size: 18px;
+    cursor: pointer;
+}
+.buttonAdd:hover {
+    color: black;
+    font-weight: 500;
+}

@@ -16,6 +16,7 @@ export default function Popap (props) {
                         </NavLink>
                     </Route>
                 </div>
+                <p className={css.popup__created}>Created at: {formatDate(created)}</p>
                 <div className={css.popup__header__description}>
                     Это был темный лес, издали казавшийся непроходимым. Там Пахапиль
                     охотился, глушил рыбу, спал на еловых ветках. Короче – жил, пока
@@ -23,7 +24,6 @@ export default function Popap (props) {
                     Он появился в Раквере, где советский капитан наградил его медалью.
                     Медаль была украшена четырьмя непонятными словами, фигурой и
                     восклицательным знаком.
-                    <p className={css.popup__created}>Created at: {formatDate(created)}</p>
                 </div>
             </div>
         
