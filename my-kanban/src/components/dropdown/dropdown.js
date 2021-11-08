@@ -7,7 +7,7 @@ export default function Dropdown (props) {
     const [isForm, setisForm] = useState(false)
    
 // переключаем кнопку + Add card на dropdown
-    const AddTaskBtn = () => {
+    const addTaskBtn = () => {
         setisForm (!isForm)
     } 
 
@@ -17,7 +17,7 @@ export default function Dropdown (props) {
 			content: e.target.value,
             }
         addCardReady(dataReady)
-        AddTaskBtn ()
+        addTaskBtn ()
     }
  // записываем из drop-down данные в спиок задач In Progress
  const handleChangeInProgress = (e) => {
@@ -25,7 +25,7 @@ export default function Dropdown (props) {
         content: e.target.value,
         }
         addCardInProgress(dataInProgress)
-        AddTaskBtn ()
+        addTaskBtn ()
 }
  // записываем из drop-down данные в спиок задач Finished
  const handleChangeFinished = (e) => {
@@ -33,40 +33,38 @@ export default function Dropdown (props) {
         content: e.target.value,
         }
         addCardFinished(dataFinished)
-        AddTaskBtn ()
+        addTaskBtn ()
+        console.log(e.target.value)
 }
    
     return (
     <>
         {isForm && todotitle === 'Ready' &&
-        <select  disabled = {Backlog.items.length < 2 ? true : false} className={css.select} onChange={handleChangeReady} >
+        <select  disabled = {Backlog.items.length < 1 ? true : false} className={css.select} onChange={handleChangeReady} >
            {Backlog.items.map((item) => {
-            return <option value={item.content} id ={item.id}>{item.content}</option>
+            return <option key = {item.content} value={item.content} id ={item.id}>{item.content}</option>
             })}
         </select>
         } 
        
        {isForm && todotitle === 'In Progress' &&
-       <select disabled = {Ready.items.length < 2 ? true : false} className={css.select} onChange={handleChangeInProgress}>
+       <select disabled = {Ready.items.length < 1 ? true : false} className={css.select} onChange={handleChangeInProgress}>
           {Ready.items.map((item) => {
-           return <option value={item.content} id ={item.id}>{item.content}</option>
+           return <option key = {item.content} value={item.content} id ={item.id}>{item.content}</option>
            })}
        </select>
        } 
        
        {isForm && todotitle === 'Finished' &&
-       <select disabled = {InProgress.items.length < 2 ? true : false} id ={InProgress.items.id} value={InProgress.items.content} className={css.select} onChange={handleChangeFinished}>
+       <select disabled = {InProgress.items.length < 1 ? true : false} id ={InProgress.items.id} value={InProgress.items.content} className={css.select} onChange={handleChangeFinished}>
           {InProgress.items.map((item) => {
-           return <option value={item.content} id ={item.id}>{item.content}</option>
+           return <option key = {item.content} value={item.content} id ={item.id}>{item.content}</option>
            })}
        </select>
        } 
-       <button onClick = {AddTaskBtn} className={css.button}>
+       <button onClick = {addTaskBtn} className={css.button}>
            {!isForm ? "+ Add card" : ""}
        </button>
    </>
     )
-
-
-
 }

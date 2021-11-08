@@ -21,7 +21,7 @@ function handleSubmit (e) {
         }
         setFormValid (true)
         addCard(data)
-        AddTaskBtn ()
+        addTaskBtn ()
         itemsInput.current.value = '' //очищаем форму после ввода
     } else {
         setFormValid (false)
@@ -29,7 +29,7 @@ function handleSubmit (e) {
 
 }
 
-const AddTaskBtn = () => {
+const addTaskBtn = () => {
     setisForm (!isForm)
 } 
 
@@ -48,7 +48,7 @@ function isFormValidated () {
                 {!formValid && <p className={css.error}>List must have a least one item</p>}
             </form>
         }
-        <button onClick = {AddTaskBtn} className={css.buttonAdd}>
+        <button onClick = {addTaskBtn} className={css.buttonAdd}>
             {!isForm && "+ Add card"}
         </button>
         

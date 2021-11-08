@@ -2,7 +2,7 @@ import {useState, useRef} from 'react'
 import css from './addtaskdetail.module.css'
 
 export default function Addtaskdetail (props) {
-    const {addCard} = props
+    const {addDescription, title, content, id} = props
     const itemsInput = useRef()
     const [formValid, setFormValid] = useState(true)
     const [isForm, setisForm] = useState(false)
@@ -14,13 +14,13 @@ function handleSubmit (e) {
     if (isValideted) {
         const items = itemsInput.current.value
         const dataDescription = {
-            
+            id: id,
+            content: content,
 			description: items,
         }
-
         setFormValid (true)
-        //addCard(dataDescription)
-        AddDescriptionBtn ()
+        addDescription(dataDescription, title)
+        addDescriptionBtn ()
         itemsInput.current.value = '' //очищаем форму после ввода
     } else {
         setFormValid (false)
@@ -28,7 +28,7 @@ function handleSubmit (e) {
 
 }
 
-const AddDescriptionBtn = () => {
+const addDescriptionBtn = () => {
     setisForm (!isForm)
 } 
 
@@ -47,7 +47,7 @@ function isFormValidated () {
                 {!formValid && <p className={css.error}>Description must have a least one item</p>}
             </form>
         }
-        <button onClick = {AddDescriptionBtn} className={css.buttonAdd}>
+        <button onClick = {addDescriptionBtn} className={css.buttonAdd}>
             {!isForm && "+ Add description"}
         </button>
         

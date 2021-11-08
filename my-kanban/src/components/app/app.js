@@ -1,4 +1,4 @@
-import {useState} from 'react'
+import { useState } from 'react'
 import Header from '../header';
 import Main from '../main';
 import Footer from '../footer';
@@ -6,18 +6,35 @@ import css from './app.module.css';
 import mock from '../../mock';
 import { BrowserRouter as Router } from "react-router-dom";
 
-
 function App() {
   const [state, setState] = useState(mock)
- 
-  // извлекаем из localStorage объект todos
+
+//извлекаем из localStorage объект todos, если он там есть
     if (localStorage.Todos != null)
-     {state.todos = JSON.parse(localStorage.getItem('Todos'))} 
+    {state.todos = JSON.parse(localStorage.getItem('Todos'))} 
   
-   // записываем в localStorage объект todos с ключем 'Todos'
-   const updateLocal = () => {
-    localStorage.setItem('Todos', JSON.stringify(state.todos))
+  // записываем в localStorage объект todos с ключем 'Todos'
+  //useEffect(() => {
+  //  window.localStorage.setItem('Todos', JSON.stringify(state.todos))
+  //}, [state.todos])
+
+  const updateLocal = () => {
+  localStorage.setItem('Todos', JSON.stringify(state.todos))
 }
+
+/* добавляем новое описание задачи description  */
+function addDescription (dataDescription) {  
+  const updatedDescription = state.todos.map (todo => {
+  if (todo.items.content === dataDescription.content) 
+    return todo.items.description = dataDescription.description
+    return todo
+})
+console.log (dataDescription, updatedDescription)
+setState ({...state.todos, updatedDescription})
+updateLocal();// вызываем localStorage
+}
+
+
 /*добавляем новый эл-т в конец массива Backlog */
 function addCard (data) {  
     const updatedTodos = state.todos.map (todo => {
@@ -38,7 +55,7 @@ function addCardReady (dataReady) {
       return  todo.items = newBacklog
     if (todo.title === 'Ready')
       return  todo.items.push(dataReady)
-    return todo
+      return todo
   })
   setState ({...state.todos, updatedReady}) /* перезаписываем state */
   updateLocal();// вызываем localStorage
@@ -70,12 +87,14 @@ function addCardFinished (dataFinished) {
   updateLocal();// вызываем localStorage
 }
 
+
   return (
       <div className ={css.app}>
       <Router>
           <Header />
           <Main todos =  {state.todos} 
                 addCard={addCard} 
+                addDescription = {addDescription}
                 addCardReady = {addCardReady} 
                 addCardInProgress = {addCardInProgress}
                 addCardFinished = {addCardFinished}/>
