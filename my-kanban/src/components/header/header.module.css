@@ -3,6 +3,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    font-family: 'Roboto' !important;
 }
 .avatar {
     display: flex;
@@ -14,9 +15,9 @@
 .awesome {
     font-size: 20px;
     align-items: center;
-    font-family: Roboto;
     color: #FFFFFF;
     margin-left: 20px;
+    font-family: 'Roboto' !important;
 }
 /* Header  */
 
@@ -110,5 +111,8 @@
     .awesome {
       display: none;
     }
-    
+    .header {
+      background-color: #0079BF;
+    }
   }
+ 

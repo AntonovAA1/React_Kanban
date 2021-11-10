@@ -25,11 +25,13 @@ function App() {
 /* добавляем новое описание задачи description  */
 function addDescription (dataDescription) {  
   const updatedDescription = state.todos.map (todo => {
-  if (todo.items.content === dataDescription.content) 
-    return todo.items.description = dataDescription.description
+    todo.items.map (item => {
+      if (item.content === dataDescription.content) 
+        return item.description = dataDescription.description
+        return item
+    })
     return todo
 })
-console.log (dataDescription, updatedDescription)
 setState ({...state.todos, updatedDescription})
 updateLocal();// вызываем localStorage
 }

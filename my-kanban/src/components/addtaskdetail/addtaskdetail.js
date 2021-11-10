@@ -25,7 +25,6 @@ function handleSubmit (e) {
     } else {
         setFormValid (false)
     }
-
 }
 
 const addDescriptionBtn = () => {
@@ -49,8 +48,7 @@ function isFormValidated () {
         }
         <button onClick = {addDescriptionBtn} className={css.buttonAdd}>
             {!isForm && "+ Add description"}
-        </button>
-        
+        </button>  
         </>
     )
 }

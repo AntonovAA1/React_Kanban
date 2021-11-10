@@ -41,6 +41,7 @@ export default function Dropdown (props) {
     <>
         {isForm && todotitle === 'Ready' &&
         <select  disabled = {Backlog.items.length < 1 ? true : false} className={css.select} onChange={handleChangeReady} >
+           <option value=''>Select value</option>;
            {Backlog.items.map((item) => {
             return <option key = {item.content} value={item.content} id ={item.id}>{item.content}</option>
             })}
@@ -49,6 +50,7 @@ export default function Dropdown (props) {
        
        {isForm && todotitle === 'In Progress' &&
        <select disabled = {Ready.items.length < 1 ? true : false} className={css.select} onChange={handleChangeInProgress}>
+        <option value=''>Select value</option>;
           {Ready.items.map((item) => {
            return <option key = {item.content} value={item.content} id ={item.id}>{item.content}</option>
            })}
@@ -57,6 +59,7 @@ export default function Dropdown (props) {
        
        {isForm && todotitle === 'Finished' &&
        <select disabled = {InProgress.items.length < 1 ? true : false} id ={InProgress.items.id} value={InProgress.items.content} className={css.select} onChange={handleChangeFinished}>
+          <option value=''>Select value</option>;
           {InProgress.items.map((item) => {
            return <option key = {item.content} value={item.content} id ={item.id}>{item.content}</option>
            })}

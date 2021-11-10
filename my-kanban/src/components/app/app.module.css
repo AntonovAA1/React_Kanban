@@ -1,6 +1,11 @@
 .app {
-    background: rgb(92, 116, 211);
+    background: #0079BF;
     display: flex;
     flex-direction: column;
+}
 
+@media screen and (min-width: 780px) {
+    .app { 
+        height: 100vh;
+    }
 }
